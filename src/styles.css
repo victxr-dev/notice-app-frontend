@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  color: #e2e2e2;
+  background: radial-gradient(ellipse at bottom, #012651 0%, #090a0f 100%);
+  font-family: monospace;
+}

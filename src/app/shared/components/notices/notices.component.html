@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<div
+  class="container min-vh-100 d-flex justify-content-center align-items-center mt-3"
+>
+  <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+
+  <div class="row row-cols-1 row-cols-md-2 gx-3 gy-3">
+    @if(notices() && categoryStore.stateCategory()) { @for(notice of notices();
+    track notice.id) {
+    <div class="col">
+      <div class="card mb-3" style="height: 400px">
+        <img
+          src="{{ notice.image }}"
+          class="card-img-top img-fluid"
+          alt="..."
+          style="height: 200px; object-fit: cover"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ notice.title }}</h5>
+          <p class="card-text">{{ notice.description }}</p>
+          <a class="text-decoration-none" routerLink="/detail/{{ notice.id }}"
+            >Details</a
+          >
+        </div>
+      </div>
+    </div>
+    } } @else { @for(notice of categoryStore.noticesCategory(); track notice.id)
+    {
+    <div class="col">
+      <div class="card" style="height: 400px">
+        <img
+          src="{{ notice.image }}"
+          class="card-img-top img-fluid"
+          alt="..."
+          style="height: 200px; object-fit: cover"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ notice.title }}</h5>
+          <p class="card-text">{{ notice.description }}</p>
+          <a class="text-decoration-none" routerLink="/detail/{{ notice.id }}"
+            >Details</a
+          >
+        </div>
+      </div>
+    </div>
+    } }
+  </div>
+</div>
