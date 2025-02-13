@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   private readonly storage = inject(StorageService);
   private readonly router = inject(Router);
   private readonly api = inject(ApiService);
-  public categorys: NoticeInterface[] = [];
+  public categorys: any;
   public optCategory!: string;
   private categoryStore = inject(CategoryStore);
 
@@ -59,9 +59,12 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   allCategory(): void {
     this.api.allNotices().subscribe({
       next: (data) => {
-        this.categorys = data;
+        this.categorys = data.filter(
+          (item, index, self) =>
+            index === self.findIndex((t) => t.category === item.category)
+        );
         console.log('prueba');
-        console.log(data);
+        console.log(this.categorys);
       },
       error: (error) => {
         console.log(error);
