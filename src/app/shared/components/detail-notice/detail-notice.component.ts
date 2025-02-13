@@ -5,7 +5,6 @@ import { NoticeInterface } from '../../inteface/notice.interface';
 import { AuthService } from '../../services/auth.service';
 import { StorageService } from '../../services/storage.service';
 import { RecommendedNoticeComponent } from '../recommended-notice/recommended-notice.component';
-import { NoticeStore } from '../../stores/notice.store';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -23,7 +22,6 @@ export class DetailNoticeComponent implements OnInit {
   private authService = inject(AuthService);
   private router = inject(Router);
   private storeService = inject(StorageService);
-  public noticeStore = inject(NoticeStore);
   private params: any;
   private spinnerService = inject(NgxSpinnerService);
 
